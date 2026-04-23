@@ -30,7 +30,7 @@
 - Verify cart updates correctly after adding/removing items
 - Verify cart retains items after navigation
 - Verify cart state after page refresh
-- Verify adding the same product multiple times (if allowed)
+- Verify user cannot add the same product multiple times
 - Verify behavior when cart is empty
 
 ---
