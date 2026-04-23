@@ -3,9 +3,11 @@
 ## 1. Authentication
 
 - Verify user can login with valid credentials
+- Verify user can logout successfully
 - Verify error message is shown for invalid credentials
 - Verify user cannot login with empty fields
-- Verify user can logout successfully
+- Verify system behavior when refreshing after login
+- Verify login state when opening multiple tabs
 - Verify session is cleared after logout
 
 ---
@@ -14,7 +16,9 @@
 
 - Verify product list is displayed after login
 - Verify product details are shown correctly
-- Verify user can sort products
+- Verify product list consistency after page refresh
+- Verify sorting functionality with different options
+- Verify behavior when navigating back from product detail
 
 ---
 
@@ -22,9 +26,12 @@
 
 - Verify user can add a product to cart
 - Verify user can add multiple products to cart
-- Verify cart updates correctly after adding items
 - Verify user can remove product from cart
+- Verify cart updates correctly after adding/removing items
 - Verify cart retains items after navigation
+- Verify cart state after page refresh
+- Verify adding the same product multiple times (if allowed)
+- Verify behavior when cart is empty
 
 ---
 
@@ -32,6 +39,10 @@
 
 - Verify user can proceed to checkout from cart
 - Verify user can complete checkout with valid information
+- Verify order is completed successfully
 - Verify validation error when checkout information is incomplete
 - Verify user cannot proceed with invalid input
-- Verify order is completed successfully
+- Verify checkout behavior with empty cart
+- Verify input field boundaries (e.g., very long text)
+- Verify special characters in input fields
+- Verify user flow interruption (refresh during checkout)
