@@ -15,13 +15,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
         working-directory: ./automation
         run: npm install
 
-      - name: Install Gauge
+      - name: Install Playwright browsers
+        working-directory: ./automation
+        run: npx playwright install --with-deps
+
+      - name: Install Gauge CLI
         run: |
           npm install -g @getgauge/cli
           gauge install js
@@ -32,6 +36,7 @@ jobs:
 
       - name: Upload Report
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: smoke-report
-          path: reports
+          path: automation/reports
