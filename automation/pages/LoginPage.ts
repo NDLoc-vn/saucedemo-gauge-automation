@@ -1,4 +1,3 @@
-import { Page } from "@playwright/test";
 import { BasePage } from "./base/BasePage";
 
 export class LoginPage extends BasePage {
@@ -8,16 +7,16 @@ export class LoginPage extends BasePage {
   private error = this.page.locator('[data-test="error"]');
 
   async open() {
-    await this.visit("/");
+    await this.page.goto("https://www.saucedemo.com/");
   }
 
-  async login(user: string, pass: string) {
-    await this.fill(this.username, user);
-    await this.fill(this.password, pass);
+  async login(u: string, p: string) {
+    await this.fill(this.username, u);
+    await this.fill(this.password, p);
     await this.click(this.loginBtn);
   }
 
   async getError() {
-    return this.getText(this.error);
+    return this.error.textContent();
   }
 }
