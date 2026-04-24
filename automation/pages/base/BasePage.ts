@@ -1,4 +1,4 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, expect } from "@playwright/test";
 
 export class BasePage {
   protected page: Page;
@@ -7,15 +7,17 @@ export class BasePage {
     this.page = page;
   }
 
-  async navigate(path: string) {
+  async visit(path: string) {
     await this.page.goto(path);
   }
 
   async click(locator: Locator) {
+    await expect(locator).toBeVisible();
     await locator.click();
   }
 
   async fill(locator: Locator, value: string) {
+    await expect(locator).toBeVisible();
     await locator.fill(value);
   }
 
