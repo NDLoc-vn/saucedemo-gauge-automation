@@ -14,6 +14,29 @@ export class InventoryPage extends BasePage {
     return this.items.count();
   }
 
+  async getAllItems() {
+    const count = await this.items.count();
+    const results = [];
+
+    for (let i = 0; i < count; i++) {
+      const item = this.items.nth(i);
+
+      const name = await item.locator(".inventory_item_name").textContent();
+      const priceText = await item
+        .locator(".inventory_item_price")
+        .textContent();
+      const addButton = item.locator("button");
+
+      results.push({
+        name: name?.trim() || "",
+        price: Number(priceText?.replace("$", "")),
+        hasAddButton: await addButton.isVisible(),
+      });
+    }
+
+    return results;
+  }
+
   async sortBy(value: string) {
     await this.sort.selectOption(value);
   }

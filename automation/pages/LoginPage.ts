@@ -1,3 +1,4 @@
+import { ENV } from "../config/env";
 import { BasePage } from "./base/BasePage";
 
 export class LoginPage extends BasePage {
@@ -7,7 +8,7 @@ export class LoginPage extends BasePage {
   error = this.page.locator('[data-test="error"]');
 
   async open() {
-    await this.page.goto("https://www.saucedemo.com/");
+    await this.page.goto(ENV.baseUrl);
   }
 
   async login(u: string, p: string) {
