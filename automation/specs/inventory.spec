@@ -1,6 +1,10 @@
 # Inventory
 
+tags: regression
+
 ## Product list display
+
+tags: smoke, regression
 
 * User navigates to login page
 * User logs in with "valid" credentials
@@ -8,6 +12,8 @@
 * Each product should have name, price, and add button
 
 ## Sorting products by price
+
+tags: regression
 
 * User navigates to login page
 * User logs in with "valid" credentials

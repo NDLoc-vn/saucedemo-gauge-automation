@@ -1,6 +1,10 @@
 # Checkout
 
+tags: regression
+
 ## Successful checkout
+
+tags: smoke, regression, e2e
 
 * User navigates to login page
 * User logs in with "valid" credentials
@@ -13,6 +17,8 @@
 
 ## Checkout with empty data
 
+tags: regression
+
 * User navigates to login page
 * User logs in with "valid" credentials
 * User adds a product to cart
@@ -23,6 +29,8 @@
 * Validation error should be displayed
 
 ## Checkout with random data
+
+tags: regression, e2e
 
 * User navigates to login page
 * User logs in with "valid" credentials
