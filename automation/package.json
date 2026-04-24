@@ -2,6 +2,7 @@
   "name": "gauge-ts-template",
   "description": "Starter template for writing TypeScript tests for Gauge",
   "dependencies": {
+    "@playwright/test": "^1.59.1",
     "gauge-ts": "0.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
@@ -9,5 +10,16 @@
   "devDependencies": {
     "@types/node": "latest",
     "taiko": "^1.4.0"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
