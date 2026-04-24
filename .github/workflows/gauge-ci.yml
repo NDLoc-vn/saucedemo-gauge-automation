@@ -18,6 +18,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
+        working-directory: ./automation
         run: npm install
 
       - name: Install Gauge
@@ -26,6 +27,7 @@ jobs:
           gauge install js
 
       - name: Run Smoke Tests
+        working-directory: ./automation
         run: gauge run specs --tags smoke
 
       - name: Upload Report
