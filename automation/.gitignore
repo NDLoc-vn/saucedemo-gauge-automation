@@ -8,3 +8,4 @@ logs
 reports
 
 node_modules
+.env
