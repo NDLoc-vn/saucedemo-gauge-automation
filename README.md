@@ -27,7 +27,6 @@ https://www.saucedemo.com/
 - docs/: Test strategy and documentation
 - testcases/: Manual test cases
 - automation/: Automation scripts
-- api/: API testing
 - bug-reports/: Bug documentation
 
 ## Status

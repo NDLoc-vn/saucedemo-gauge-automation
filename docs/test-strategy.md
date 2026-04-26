@@ -14,7 +14,6 @@ The objective of this project is to validate the core functionality of the Sauce
 - Product listing
 - Add to cart
 - Checkout process
-- Logout
 
 ### Out of Scope
 
@@ -27,7 +26,6 @@ The objective of this project is to validate the core functionality of the Sauce
 
 - Manual Testing
 - Automation Testing (UI)
-- API Testing (basic validation)
 
 ---
 
