@@ -4,9 +4,13 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 17 * * *' # 00:00 (UTC+7)
 
 jobs:
   smoke-tests:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +29,7 @@ jobs:
         working-directory: ./automation
         run: npx playwright install --with-deps
 
-      - name: Install Gauge CLI
+      - name: Install Gauge
         run: |
           npm install -g @getgauge/cli
           gauge install js
@@ -34,21 +38,22 @@ jobs:
         working-directory: ./automation
         run: gauge run specs --tags smoke
 
-      - name: Upload Report
-        uses: actions/upload-artifact@v4
+      - name: Upload Smoke Report
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: smoke-report
           path: automation/reports
 
   regression-tests:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -68,3 +73,10 @@ jobs:
       - name: Run Regression Tests
         working-directory: ./automation
         run: gauge run specs --tags regression
+
+      - name: Upload Regression Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-report
+          path: automation/reports
